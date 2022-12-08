@@ -11,10 +11,12 @@ from sympy import symbols
 from math import prod
 
 k = int(input('Введите степень k от 0 до 100: '))
-koeff = [randint(-100, 100) for i in range(k)] + [randint(1, 100)]
+koeff = [randint(-100, 100) for i in range(k)] + [randint(1, 100)]      # Генерирую коэффициенты
 x = symbols('x')
-mnog = str(sum(map(prod, zip(koeff, [x**i for i in range(k + 1)]))))
-mnog = mnog + " = 0"
+
+mnog = str(sum(map(prod, zip(koeff, [x**i for i in range(k + 1)]))))    # Создаю многочлен
+mnog = mnog + " = 0"                                                    
 print(mnog)
-f = open('4th_text.txt', 'w')
+f = open('4th_text.txt', 'w')                                           # Записываю в файл уравнение
 f.writelines(mnog)
+f.close()
